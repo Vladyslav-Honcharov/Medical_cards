@@ -1,0 +1,16 @@
+.filter {
+  &__ckeckbox {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.form-check-label {
+  padding-top: 4px;
+}
+
+// .error__input {
+//   border: 2px red solid;
+// }
+.error__input::placeholder {
+  color: red;
+}

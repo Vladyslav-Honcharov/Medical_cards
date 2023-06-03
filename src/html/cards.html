@@ -1,0 +1,146 @@
+<div class="container-fluid">
+  <h1 class="no__item">No items have been added</h1>
+  <div class="card__list container" id="cards-container">
+    <!-- <div class="card">
+      <div class="card__title"></div>
+      <div class="card__goal"></div>
+      <div class="card__discription"></div>
+      <div class="card__pacient"></div>
+      <div class="card__priority"></div>
+      <div class="card__ageTerapist"></div>
+    </div> -->
+  </div>
+  <div class="modal" id="modalVisitEdit" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Редагувати візит</h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            id="btnCloseVisitEdit"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <form class="formVisitEdit" id="formVisitEdit">
+            <div class="form-check form-check-inline" id="status">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="visitWait"
+                value="visitWait"
+                name="statusVisit"
+                checked
+              />
+              <label class="form-check-label" for="statusVisit"
+                >Запланувати візит</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="visitDoneEdit"
+                value="visitDone"
+                name="statusVisit"
+              />
+              <label class="form-check-label" for="statusVisit"
+                >Візит пройшов</label
+              >
+            </div>
+            <div>
+              <label class="form-label m-2">Мета візиту</label>
+              <input class="form-control" id="goalEdit" name="goal" />
+            </div>
+
+            <label class="form-label m-2">Короткий опис візиту</label>
+            <input
+              class="form-control"
+              id="discriptionEdit"
+              name="discription"
+            />
+            <label class="form-label m-2">Терміновість візиту:</label>
+            <select
+              class="form-select"
+              aria-label="Default select"
+              id="priorityEdit"
+            >
+              <option value="Важливий">Важливий</option>
+              <option value="Середній" selected>Середній</option>
+              <option value="Низький">Низький</option>
+            </select>
+            <label class="form-label m-2">Призвіще та ім'я пацієнта</label>
+            <input class="form-control" id="pacientEdit" name="pacient" />
+            <label class="form-label m-2 therapist hide">Вік</label>
+            <input
+              class="form-control therapist hide number-input"
+              id="ageTherapistEdit"
+              name="ageTherapist"
+            />
+            <label class="form-label m-2 dentist hide"
+              >Дата останього візиту</label
+            >
+            <input
+              type="date"
+              class="form-control dentist hide"
+              id="dateEdit"
+              name="date"
+            />
+
+            <label class="form-label m-2 cardiologist hide"
+              >Звичайний тиск</label
+            >
+            <input
+              class="form-control cardiologist hide"
+              id="pressureEdit"
+              name="pressure"
+            />
+            <label class="form-label m-2 cardiologist hide"
+              >Індекс маси тіла</label
+            >
+            <input
+              class="form-control cardiologist hide number-input"
+              id="index"
+              name="indexEdit"
+            />
+            <label class="form-label m-2 cardiologist hide"
+              >Перенесені захворювання серцево-судинної системи</label
+            >
+            <input
+              class="form-control cardiologist hide"
+              id="pastDiseasesEdit"
+              name="pastDiseases"
+            />
+            <label class="form-label m-2 cardiologist hide">Вік</label>
+            <input
+              class="form-control cardiologist hide number-input"
+              id="ageCardiologistEdit"
+              name="ageCardiologist"
+            />
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-success"
+                data-dismiss="modal"
+                id="btnCreateVisitEdit"
+              >
+                Редагувати візит
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="btnCloseVisitEdit"
+                aria-label="Close"
+              >
+                Закрити
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

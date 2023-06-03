@@ -1,0 +1,348 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+a,
+abbr,
+acronym,
+address,
+applet,
+aside,
+audio,
+article,
+big,
+blockquote,
+body,
+button,
+b,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+details,
+dfn,
+div,
+dt,
+del,
+dl,
+em,
+embed,
+figcaption,
+footer,
+form,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+li,
+main,
+mark,
+menu,
+nav,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* added myself */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+}
+
+.header {
+  background: #e3f3e1;
+}
+
+.header__img {
+  width: 50px;
+  height: 50px;
+}
+
+.filter__ckeckbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.form-check-label {
+  padding-top: 4px;
+}
+
+.error__input::-webkit-input-placeholder {
+  color: red;
+}
+
+.error__input::-moz-placeholder {
+  color: red;
+}
+
+.error__input:-ms-input-placeholder {
+  color: red;
+}
+
+.error__input::-ms-input-placeholder {
+  color: red;
+}
+
+.error__input::placeholder {
+  color: red;
+}
+
+body {
+  font-family: "Roboto";
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 86vh;
+  width: 100vw;
+  background-color: #f5f5ef;
+}
+
+.no__item {
+  color: rgb(195, 84, 84);
+  font-size: 30px;
+  text-align: center;
+  margin-top: 30vh;
+}
+
+.card {
+  color: #307570;
+  font-weight: 300;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  position: relative;
+  width: 240px;
+  border-radius: unset;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.card-title {
+  padding-top: 15px;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.card__goal {
+  margin-bottom: 0.5rem;
+  text-align: left;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #6bb961;
+  border-color: #6bb961;
+}
+
+.btn-primary:hover {
+  background-color: #6bb961;
+  border-color: #6bb961;
+}
+
+.btn-primary:focus {
+  background-color: #6bb961;
+  border-color: #6bb961;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #6bb961;
+  border-color: #6bb961;
+}
+
+.btn-secondary {
+  border-radius: unset;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  color: #307570;
+  border-color: none;
+  background-color: #fff;
+  color: #e8f196;
+}
+
+.card__list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.btn-warning {
+  color: #307570;
+  background-color: unset;
+  border-radius: unset;
+  border-color: unset;
+  border-bottom-right-radius: 10px;
+}
+
+.btn-warning:focus {
+  color: #307570;
+  background-color: #fff;
+  border-color: none;
+}
+
+.btn-warning:hover {
+  color: #307570;
+  border-color: #307570;
+  background-color: #fff;
+}
+
+#deleteCard {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+}
+
+#doneCheckboxDiv {
+  padding-bottom: 10px;
+}
+
+#doneCheckboxDiv:hover {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .card__list {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .card__list {
+    -ms-grid-columns: (1fr)[1];
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 450px) {
+  #nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+  }
+}

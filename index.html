@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <title>Cards</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./dist/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./dist/img/favicon-16x16.png" />
+
+  <link rel="stylesheet" href="./dist/css/styles.min.css" />
+</head>
+
+<body>
+  <section class="header">
+  <nav class="navbar container">
+    <div class="container-fluid" id="nav">
+      <a href="#" class="navbar-brand"
+        ><img src="./dist/img/logo.png" alt="" class="header__img"
+      /></a>
+
+      <button
+        class="btn btn-outline-success"
+        id="btnLogin"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loginUser"
+      >
+        Вхід
+      </button>
+      <div
+        class="modal"
+        id="loginUser"
+        tabindex="-1"
+        aria-labelledby="loginUserLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="loginUserLabel">Вхід</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form class="userInfo">
+                <label class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control mb-3"
+                  id="userEmail"
+                  placeholder="Введіть вашу пошту"
+                />
+
+                <label class="form-label">Password</label>
+                <input
+                  type="password"
+                  id="userPassword"
+                  class="form-control"
+                  aria-labelledby="passwordHelpBlock"
+                />
+                <p class="errorUser text-danger m-3 hide" id="errorUser">
+                  Ви ввели некоректні данні, перевірте почту або пароль
+                </p>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Закрити
+                  </button>
+                  <button type="submit" class="btn btn-success" id="enterBtn">
+                    Увійти
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>
+ <form class="filter container" id="filterForm">
+  <label class="form-label m-3">Заголовком/вміст візиту</label>
+  <input
+    class="form-control"
+    list="datalistOptions"
+    id="search"
+    placeholder="Введіть заголовок"
+  />
+  <div class="filter__ckeckbox">
+    <div class="status">
+      <label class="status__visit m-3">Статус візиту</label>
+      <div class="form-check form-switch">
+        <label class="form-check-label">Візит пройшов</label>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="visitDoneFilter"
+        />
+      </div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="visitWaitFilter"
+        />
+        <label class="form-check-label">Очікується візит</label>
+      </div>
+    </div>
+    <div class="priority">
+      <div class="priority__visit m-3">Терміновість візиту</div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="high"
+        />
+        <label class="form-check-label">Важливий</label>
+      </div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="medium"
+        />
+        <label class="form-check-label">Середній</label>
+      </div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="low"
+        />
+        <label class="form-check-label">Низький</label>
+      </div>
+    </div>
+  </div>
+</form>
+
+  <div class="container-fluid">
+  <h1 class="no__item">No items have been added</h1>
+  <div class="card__list container" id="cards-container">
+    <!-- <div class="card">
+      <div class="card__title"></div>
+      <div class="card__goal"></div>
+      <div class="card__discription"></div>
+      <div class="card__pacient"></div>
+      <div class="card__priority"></div>
+      <div class="card__ageTerapist"></div>
+    </div> -->
+  </div>
+  <div class="modal" id="modalVisitEdit" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Редагувати візит</h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            id="btnCloseVisitEdit"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <form class="formVisitEdit" id="formVisitEdit">
+            <div class="form-check form-check-inline" id="status">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="visitWait"
+                value="visitWait"
+                name="statusVisit"
+                checked
+              />
+              <label class="form-check-label" for="statusVisit"
+                >Запланувати візит</label
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="visitDoneEdit"
+                value="visitDone"
+                name="statusVisit"
+              />
+              <label class="form-check-label" for="statusVisit"
+                >Візит пройшов</label
+              >
+            </div>
+            <div>
+              <label class="form-label m-2">Мета візиту</label>
+              <input class="form-control" id="goalEdit" name="goal" />
+            </div>
+
+            <label class="form-label m-2">Короткий опис візиту</label>
+            <input
+              class="form-control"
+              id="discriptionEdit"
+              name="discription"
+            />
+            <label class="form-label m-2">Терміновість візиту:</label>
+            <select
+              class="form-select"
+              aria-label="Default select"
+              id="priorityEdit"
+            >
+              <option value="Важливий">Важливий</option>
+              <option value="Середній" selected>Середній</option>
+              <option value="Низький">Низький</option>
+            </select>
+            <label class="form-label m-2">Призвіще та ім'я пацієнта</label>
+            <input class="form-control" id="pacientEdit" name="pacient" />
+            <label class="form-label m-2 therapist hide">Вік</label>
+            <input
+              class="form-control therapist hide number-input"
+              id="ageTherapistEdit"
+              name="ageTherapist"
+            />
+            <label class="form-label m-2 dentist hide"
+              >Дата останього візиту</label
+            >
+            <input
+              type="date"
+              class="form-control dentist hide"
+              id="dateEdit"
+              name="date"
+            />
+
+            <label class="form-label m-2 cardiologist hide"
+              >Звичайний тиск</label
+            >
+            <input
+              class="form-control cardiologist hide"
+              id="pressureEdit"
+              name="pressure"
+            />
+            <label class="form-label m-2 cardiologist hide"
+              >Індекс маси тіла</label
+            >
+            <input
+              class="form-control cardiologist hide number-input"
+              id="index"
+              name="indexEdit"
+            />
+            <label class="form-label m-2 cardiologist hide"
+              >Перенесені захворювання серцево-судинної системи</label
+            >
+            <input
+              class="form-control cardiologist hide"
+              id="pastDiseasesEdit"
+              name="pastDiseases"
+            />
+            <label class="form-label m-2 cardiologist hide">Вік</label>
+            <input
+              class="form-control cardiologist hide number-input"
+              id="ageCardiologistEdit"
+              name="ageCardiologist"
+            />
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-success"
+                data-dismiss="modal"
+                id="btnCreateVisitEdit"
+              >
+                Редагувати візит
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="btnCloseVisitEdit"
+                aria-label="Close"
+              >
+                Закрити
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="modal" tabindex="-1" id="modalDoctor">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Створити новий візит до лікаря</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <h2 class="title__doctor m-3">Виберіть лікаря</h2>
+        <form id="selectDoctor">
+          <select class="form-select" multiple aria-label="multiple select" id="doctorSelect">
+            <option value="cardiologist">Кардіолог</option>
+            <option value="dentist">Стоматолог</option>
+            <option value="therapist" selected>Терапевт</option>
+          </select>
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeFormModal"
+            aria-label="Close">
+            Закрити
+          </button>
+          <button type="button" class="btn btn-primary" id="createFormVisit" data-bs-toggle="modal"
+            data-bs-target="#modalVisit" data-bs-dismiss="modal">
+            Створити
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="modalVisit" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Створення нового візиту</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" id="btnCloseVisit"></button>
+      </div>
+
+      <div class="modal-body">
+        <form class="formVisit">
+          <div class="form-check form-check-inline" id="status">
+            <input class="form-check-input" type="radio" id="visitWait" value="visitWait" name="statusVisit" checked />
+            <label class="form-check-label" for="statusVisit">Запланувати візит</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="visitDone" value="visitDone" name="statusVisit" />
+            <label class="form-check-label" for="statusVisit">Візит пройшов</label>
+          </div>
+          <div>
+            <label class="form-label m-2">Мета візиту</label>
+            <input class="form-control" id="goal" name="goal" />
+          </div>
+
+          <label class="form-label m-2">Короткий опис візиту</label>
+          <input class="form-control" id="discription" name="discription" />
+          <label class="form-label m-2">Терміновість візиту:</label>
+          <select class="form-select" aria-label="Default select" id="priority">
+            <option value="Важливий">Важливий</option>
+            <option value="Середній" selected>Середній</option>
+            <option value="Низький">Низький</option>
+          </select>
+          <label class="form-label m-2">Призвіще та ім'я пацієнта</label>
+          <input class="form-control" id="pacient" name="pacient" />
+          <label class="form-label m-2 therapist hide">Вік</label>
+          <input class="form-control therapist hide number-input" id="ageTherapist" name="ageTherapist" />
+          <label class="form-label m-2 dentist hide">Дата останього візиту</label>
+          <input type="date" class="form-control dentist hide" id="date" name="date" />
+
+          <label class="form-label m-2 cardiologist hide">Звичайний тиск</label>
+          <input class="form-control cardiologist hide" id="pressure" name="pressure" />
+          <label class="form-label m-2 cardiologist hide">Індекс маси тіла</label>
+          <input class="form-control cardiologist hide number-input" id="index" name="index" />
+          <label class="form-label m-2 cardiologist hide">Перенесені захворювання серцево-судинної системи</label>
+          <input class="form-control cardiologist hide" id="pastDiseases" name="pastDiseases" />
+          <label class="form-label m-2 cardiologist hide">Вік</label>
+          <input class="form-control cardiologist hide number-input" id="ageCardiologist" name="ageCardiologist" />
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success" data-dismiss="modal" id="btnCreateVisit">
+              Створити візит
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseVisit"
+              aria-label="Close">
+              Закрити
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script type="module" src="./dist/js/app.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

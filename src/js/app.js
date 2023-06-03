@@ -1,0 +1,11 @@
+import * as login from "./modules/login.js";
+import * as cardsFilter from "./modules/filterCards.js";
+import * as formDoctor from "./modules/formDoctor.js";
+// import { Visit } from "./modules/Visit.js";
+import * as VisitCardiologist from "./modules/VisitCardiologist.js";
+import * as VisitDentist from "./modules/VisitDentist.js";
+import * as VisitTherapist from "./modules/VisitTherapist.js";
+import * as modal from "./modules/modal.js";
+import * as card from "./modules/card.js";
+import * as createCards from "./modules/createCards.js";
+import * as deleteCard from "./modules/deleteCard.js";

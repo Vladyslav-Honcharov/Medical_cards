@@ -1,0 +1,62 @@
+<form class="filter container" id="filterForm">
+  <label class="form-label m-3">Заголовком/вміст візиту</label>
+  <input
+    class="form-control"
+    list="datalistOptions"
+    id="search"
+    placeholder="Введіть заголовок"
+  />
+  <div class="filter__ckeckbox">
+    <div class="status">
+      <label class="status__visit m-3">Статус візиту</label>
+      <div class="form-check form-switch">
+        <label class="form-check-label">Візит пройшов</label>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="visitDoneFilter"
+        />
+      </div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="visitWaitFilter"
+        />
+        <label class="form-check-label">Очікується візит</label>
+      </div>
+    </div>
+    <div class="priority">
+      <div class="priority__visit m-3">Терміновість візиту</div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="high"
+        />
+        <label class="form-check-label">Важливий</label>
+      </div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="medium"
+        />
+        <label class="form-check-label">Середній</label>
+      </div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="low"
+        />
+        <label class="form-check-label">Низький</label>
+      </div>
+    </div>
+  </div>
+</form>

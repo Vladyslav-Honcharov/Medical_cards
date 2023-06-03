@@ -1,0 +1,74 @@
+<section class="header">
+  <nav class="navbar container">
+    <div class="container-fluid" id="nav">
+      <a href="#" class="navbar-brand"
+        ><img src="@img/logo.png" alt="" class="header__img"
+      /></a>
+
+      <button
+        class="btn btn-outline-success"
+        id="btnLogin"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loginUser"
+      >
+        Вхід
+      </button>
+      <div
+        class="modal"
+        id="loginUser"
+        tabindex="-1"
+        aria-labelledby="loginUserLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="loginUserLabel">Вхід</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form class="userInfo">
+                <label class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control mb-3"
+                  id="userEmail"
+                  placeholder="Введіть вашу пошту"
+                />
+
+                <label class="form-label">Password</label>
+                <input
+                  type="password"
+                  id="userPassword"
+                  class="form-control"
+                  aria-labelledby="passwordHelpBlock"
+                />
+                <p class="errorUser text-danger m-3 hide" id="errorUser">
+                  Ви ввели некоректні данні, перевірте почту або пароль
+                </p>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Закрити
+                  </button>
+                  <button type="submit" class="btn btn-success" id="enterBtn">
+                    Увійти
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>
